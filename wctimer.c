@@ -50,10 +50,12 @@ void wc_tsc_calibrate(void) {
   tscticks /= 10.0;
 
   // clockdiff and tscdiff should be ~250M ns or 250 ms
+#if 0
   fprintf(stderr, "wc_tsc_calibrate: calibrated MHz: %7.3f clock_gettime: %7.3f ms rtdsc: %7.3f ms\n",
         tscticks,
         (clockdiff/(double)1e6),
         ((tscdiff/tscticks)/(double)1e3));
+#endif
 
   tsc_cpu_hz = tscticks; // store calibrated ticks/sec in global
 }
